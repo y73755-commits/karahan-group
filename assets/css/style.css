@@ -61,11 +61,14 @@ h3 { font-size: clamp(1.35rem, 2vw, 1.7rem); }
 /* ---------- Header ---------- */
 .site-header {
   position: fixed; inset: 0 0 auto 0; z-index: 100;
-  height: var(--header-h);
+   height: var(--header-h);
+ border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+.site-header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
   background: rgba(8, 9, 11, 0.86);
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s;
 }
 .site-header.is-scrolled { border-bottom-color: var(--line); }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
