@@ -165,10 +165,8 @@
       if (status) { status.hidden = true; status.classList.remove("is-error"); }
       var hp = form.querySelector(".hp input");
       if (hp && hp.value) return; // spam tuzağı
-      if (Date.now() - loadedAt < 2500) {
-        if (status) { status.hidden = false; status.classList.add("is-error"); status.textContent = "Form çok hızlı gönderildi. Lütfen alanları kontrol edip tekrar deneyin."; }
-        return;
-      }
+      // Form hiçbir sunucuya veri göndermez, yalnızca ziyaretçinin kendi WhatsApp'ında mesaj hazırlar;
+      // bu yüzden otomatik doldurma ile hızlı gönderen müşteriler engellenmez.
       if (!validate(form)) {
         if (status) { status.hidden = false; status.classList.add("is-error"); status.textContent = "Formda eksik veya hatalı alanlar var. Lütfen işaretli alanları düzeltin."; }
         return;
